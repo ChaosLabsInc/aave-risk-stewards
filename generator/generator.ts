@@ -3,7 +3,7 @@ import path from 'path';
 import { generateContractName, generateConfigName } from './common';
 import { capsUpdatesTemplate } from './templates/capsUpdates.template';
 import { confirm } from '@inquirer/prompts';
-import { ConfigFile, Files, Options, PoolConfigs, PoolIdentifier, PoolOptions } from './types';
+import { ConfigFile, FEATURE, Files, Options, PoolConfigs, PoolIdentifier, PoolOptions } from './types';
 import prettier from 'prettier';
 
 /**
@@ -28,7 +28,7 @@ export async function generateFiles(options: Options, poolConfigs: PoolConfigs):
     );
 
     async function createPayload(options: Options, pool: PoolIdentifier) {
-        const contractName = await generateContractName(options, pool);
+        const contractName = await generateContractName(options, FEATURE.CAPS_UPDATE, pool);
         const template = await capsUpdatesTemplate(options, poolConfigs[pool]!, pool);
 
         const payload = await prettier.format(template, {

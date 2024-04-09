@@ -1,5 +1,5 @@
 import {generateContractName, getPoolName} from '../common';
-import {Options, PoolConfig, PoolIdentifier} from '../types';
+import {FEATURE, Options, PoolConfig, PoolIdentifier} from '../types';
 import {prefixWithImports} from './importsResolver';
 
 export const capsUpdatesTemplate = (
@@ -9,7 +9,7 @@ export const capsUpdatesTemplate = (
 ) => {
   const {title, author, discussion} = options;
   const poolName = getPoolName(pool);
-  const contractName = generateContractName(options, pool);
+  const contractName = generateContractName(options, FEATURE.CAPS_UPDATE, pool);
 
   const name = poolConfig.artifacts
     .map((artifact) => artifact.code?.name)

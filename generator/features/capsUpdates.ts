@@ -47,7 +47,7 @@ export const capsUpdates: FeatureModule<CapsUpdates> = {
           * @return string name identifier used for the diff
           */
           function name() internal pure override returns (string memory) {
-            return '${generateContractName(options, pool)}';
+            return '${generateContractName(options, FEATURE.CAPS_UPDATE, pool)}';
         }`,
         ],
         fn: [

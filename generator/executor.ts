@@ -1,10 +1,10 @@
 import { generateContractName, getPoolChain } from './common';
-import { Options, PoolIdentifier } from './types';
+import { FEATURE, Options, PoolIdentifier } from './types';
 import { spawn } from 'node:child_process';
 
 export async function contractsExecutor(options: Options) {
     async function createExeCommand(options: Options, pool: PoolIdentifier): Promise<string[]> {
-        const contractName = await generateContractName(options, pool);
+        const contractName = await generateContractName(options, FEATURE.CAPS_UPDATE, pool);
         let chain = getPoolChain(pool).toLowerCase();
         chain = chain === 'ethereum' ? 'mainnet' : chain;
         let args: string[] = [];

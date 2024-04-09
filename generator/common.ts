@@ -1,5 +1,5 @@
 import * as addressBook from '@bgd-labs/aave-address-book';
-import { Options, PoolIdentifier } from './types';
+import { FEATURE, Options, PoolIdentifier } from './types';
 import {
     arbitrum,
     avalanche,
@@ -64,11 +64,8 @@ export function generateConfigName(options: Options) {
  * @param pool
  * @returns
  */
-export function generateContractName(options: Options, pool?: PoolIdentifier) {
-    let name = pool ? `${getPoolName(pool)}` : '';
-    name += `${options.shortName}`;
-    name += `_${options.date}`;
-    return name;
+export function generateContractName(options: Options, feature: FEATURE, pool?: PoolIdentifier) {
+    return `${pool ? getPoolName(pool): ''}${feature}_${options.date}`;
 }
 
 export function getPoolName(pool: PoolIdentifier) {

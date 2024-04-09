@@ -41,7 +41,7 @@ export type CodeArtifact = {
 };
 
 export enum FEATURE {
-    CAPS_UPDATE = 'CAPS_UPDATE',
+    CAPS_UPDATE = 'CapsUpdate',
     OTHERS = 'OTHERS',
 }
 
