@@ -28,7 +28,7 @@ export const capsUpdatesTemplate = (
   * @author ${author}
   * - Discussion: ${discussion}
   */
- contract ${contractName} is ${`CapsPlusRiskSteward${poolName}`} {
+ contract ${contractName} is ${`CapsPlusRiskSteward${poolName}${poolName === 'Base' ? 'Chain' : ''}`} {
 
    ${name}
 

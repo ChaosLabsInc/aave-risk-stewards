@@ -50,7 +50,7 @@ export function prefixWithImports(code: string, poolName?: string) {
 
   // shared config engine imports
   if (poolName !== undefined) {
-    imports += `import {CapsPlusRiskSteward${poolName}} from '../scripts/CapsPlusRiskSteward${poolName}.s.sol';\n`;
+    imports += `import {CapsPlusRiskSteward${poolName}${poolName === 'Base' ? 'Chain' : ''}} from '../scripts/CapsPlusRiskSteward${poolName}${poolName === 'Base' ? 'Chain' : ''}.s.sol';\n`;
   }
 
   return imports + code;
